@@ -16,7 +16,9 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 		UserBuilder users = User.withDefaultPasswordEncoder();
 		
 		auth.inMemoryAuthentication()
-		.withUser(users.username("sushil").password("12345").roles("EMPLOYEE"));
+		.withUser(users.username("sushil").password("12345").roles("EMPLOYEE"))
+		.withUser(users.username("dangi").password("12345").roles("MANAGER"))
+		.withUser(users.username("skd").password("12345").roles("ADMIN"));
 	}
 
 	
