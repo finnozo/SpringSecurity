@@ -5,9 +5,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Custom Login Form</title>
 </head>
 <body>
+	<h3>My Custom Login Page</h3>
+	<form:form method="POST"
+		action="${pageContext.request.contextPath }/authenticateTheUser">
+		<p>
+			User Name : <input type="text" name="username" />
+		</p>
+		<p>
+			Password : <input type="password" name="password" />
+		</p>
+		<input type="submit" value="Login" />
+	</form:form>
 
 </body>
 </html>
