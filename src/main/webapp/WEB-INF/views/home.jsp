@@ -16,12 +16,36 @@
 	<hr>
 	<!-- display user name and role -->
 	<p>
-		User : <security:authentication property="principal.username" />
-		<br>
-		<br> 
-		Roles : <security:authentication property="principal.authorities" />
+		User :
+		<security:authentication property="principal.username" />
+		<br> <br> Roles :
+		<security:authentication property="principal.authorities" />
 	</p>
-	<hr>
+
+
+
+	<security:authorize access="hasRole('MANAGER')">
+		<!-- Add a link to point to /leaders .. this is for the manager -->
+
+		<p>
+			<a href="${pageContext.request.contextPath}/leaders">LeaderShip
+				Meeting</a> (Only for Manager peeps)
+		</p>
+
+		<hr>
+
+	</security:authorize>
+
+
+	<security:authorize access="hasRole('ADMIN')">
+		<!-- Add a link to point to /systems .. this is for the manager -->
+		<p>
+			<a href="${pageContext.request.contextPath}/systems">IT Systems
+				Meeting</a> (Only for Admin peeps)
+		</p>
+
+		<hr>
+	</security:authorize>
 	<form:form method="post"
 		action="${pageContext.request.contextPath}/logout">
 		<input type="submit" value="Logout" />
